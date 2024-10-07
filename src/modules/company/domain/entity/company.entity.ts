@@ -1,4 +1,4 @@
-export interface CompanyProps {
+export type CompanyProps = {
   id: string;
   cnpj: string;
   registeredName: string;
@@ -6,72 +6,72 @@ export interface CompanyProps {
   status: boolean;
   createdAt: Date;
   updatedAt: Date;
-}
+};
 
 export class Company {
-  private readonly props: CompanyProps;
-
-  constructor(props: CompanyProps) {
-    this.props = props;
+  private constructor(private readonly props: CompanyProps) {
+    this.validateCnpj(props.cnpj);
   }
 
-  get id(): string {
-    return this.props.id;
+  public static create(
+    cnpj: string,
+    registeredName: string,
+    tradeName: string
+  ) {
+    return new Company({
+      id: crypto.randomUUID().toString(),
+      cnpj,
+      registeredName,
+      tradeName,
+      status: true,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    });
   }
 
-  get cnpj(): string {
-    return this.props.cnpj;
-  }
-
-  get registeredName(): string {
-    return this.props.registeredName;
-  }
-
-  get tradeName(): string {
-    return this.props.tradeName;
-  }
-
-  get status(): boolean {
-    return this.props.status;
-  }
-
-  get createdAt(): Date {
-    return this.props.createdAt;
-  }
-
-  get updatedAt(): Date {
-    return this.props.updatedAt;
-  }
-
-  public static create(props: CompanyProps): Company {
+  public whit(props: CompanyProps) {
     return new Company(props);
   }
 
-  public update(cnpj: string, registeredName: string, tradeName: string): void {
-    this.props.cnpj = cnpj;
-    this.props.registeredName = registeredName;
-    this.props.tradeName = tradeName;
-    this.props.updatedAt = new Date();
+  public get id() {
+    return this.props.id;
   }
 
-  public delete = (): void => {
-    this.props.status = false;
-    this.props.updatedAt = new Date();
-  };
+  public get cnpj() {
+    return this.props.cnpj;
+  }
 
-  public isActive = (): boolean => {
+  public get registeredName() {
+    return this.props.registeredName;
+  }
+
+  public get tradeName() {
+    return this.props.tradeName;
+  }
+
+  public get status() {
     return this.props.status;
-  };
+  }
 
-  toJson = (): CompanyProps => {
-    return {
-      id: this.props.id,
-      cnpj: this.props.cnpj,
-      registeredName: this.props.registeredName,
-      tradeName: this.props.tradeName,
-      status: this.props.status,
-      createdAt: this.props.createdAt,
-      updatedAt: this.props.updatedAt,
-    };
-  };
+  public get createdAt() {
+    return this.props.createdAt;
+  }
+
+  public get updatedAt() {
+    return this.props.updatedAt;
+  }
+
+  public enable() {
+    this.props.status = true;
+  }
+
+  public disable() {
+    this.props.status = false;
+  }
+
+  private validateCnpj(cnpj: string) {
+    if (cnpj.length !== 14) {
+      throw new Error("Invalid CNPJ: must contain exactly 14 digits");
+    }
+  }
 }
