@@ -1,4 +1,4 @@
-export type CompanyProps = {
+export interface CompanyProps {
   id: string;
   cnpj: string;
   registeredName: string;
@@ -6,7 +6,7 @@ export type CompanyProps = {
   status: boolean;
   createdAt: Date;
   updatedAt: Date;
-};
+}
 
 export class Company {
   private constructor(private readonly props: CompanyProps) {
