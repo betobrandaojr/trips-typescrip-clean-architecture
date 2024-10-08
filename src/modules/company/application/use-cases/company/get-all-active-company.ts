@@ -1,10 +1,11 @@
-import { CompanyGateway } from "../../domain/gateway/company.gateway";
+import { CompanyGateway } from "../../../domain/gateway/company.gateway";
 import { Usecase } from "../use-cases";
+import { GetAllActiveCompanyPresenter } from "./presenter/get-all-active-company.presenter";
 
 export interface GetAllActiveCompanyInputDto {}
 
 export interface GetAllActiveCompanyOutputDto {
-  companys: {
+  companies: {
     id: string;
     cnpj: string;
     registeredName: string;
@@ -15,14 +16,21 @@ export interface GetAllActiveCompanyOutputDto {
   }[];
 }
 
-export class GetAllActiveCompanyUseCase implements Usecase<GetAllActiveCompanyOutputDto, GetAllActiveCompanyUseCase>{
-  private constructor(private readonly companyGateway: CompanyGateway){}
+export class GetAllActiveCompanyUseCase
+  implements Usecase<GetAllActiveCompanyInputDto, GetAllActiveCompanyOutputDto>
+{
+  private constructor(private readonly companyGateway: CompanyGateway) {}
 
   public static create(companyGateway: CompanyGateway) {
     return new GetAllActiveCompanyUseCase(companyGateway);
   }
 
-  public async execute(): Promisse<GetAllActiveCompanyOutputDto>;{
-    const iCompanys = await this.companyGateway.getAllActiveCompany();
+  public async execute(): Promise<GetAllActiveCompanyOutputDto> {
+    try {
+      const companies = await this.companyGateway.getAllActiveCompany();
+      return GetAllActiveCompanyPresenter.present(companies);
+    } catch (error) {
+      throw new Error("Method not implemented.");
+    }
   }
 }
