@@ -30,7 +30,7 @@ export class GetAllActiveCompanyUseCase
       const companies = await this.companyGateway.getAllActiveCompany();
       return GetAllActiveCompanyPresenter.present(companies);
     } catch (error) {
-      throw new Error("Method not implemented.");
+      throw new Error("Method not implemented!");
     }
   }
 }

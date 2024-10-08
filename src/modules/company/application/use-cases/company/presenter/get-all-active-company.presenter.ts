@@ -1,6 +1,6 @@
 import { Company } from "../../../../domain/entity/company.entity";
 import { GetAllActiveCompanyOutputDto } from "../get-all-active-company";
-
+//
 export class GetAllActiveCompanyPresenter {
   static present(companies: Company[]): GetAllActiveCompanyOutputDto {
     return {
