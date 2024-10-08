@@ -1,6 +1,7 @@
 import { Company } from "../../../domain/entity/company.entity";
 import { CompanyGateway } from "../../../domain/gateway/company.gateway";
 import { Usecase } from "../use-cases";
+import { CreateCompanyPresenter } from "./presenter/create-company.presenter";
 
 export interface CreateCompanyInputDto {
   cnpj: string;
@@ -39,24 +40,11 @@ export class CreateCompanyUseCase
 
       await this.companyGateway.save(iCompany);
 
-      const output = this.presentOutput(iCompany);
+      const output = CreateCompanyPresenter.present(iCompany);
 
       return output;
     } catch (error) {
       throw new Error("Method not implemented.");
     }
-  }
-
-  private presentOutput(company: Company): CreateCompanyOutputDto {
-    const output: CreateCompanyOutputDto = {
-      id: company.id,
-      cnpj: company.cnpj,
-      registeredName: company.registeredName,
-      tradeName: company.tradeName,
-      status: company.status,
-      createdAt: company.createdAt,
-      updatedAt: company.updatedAt,
-    };
-    return output;
   }
 }
