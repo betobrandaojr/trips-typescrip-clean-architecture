@@ -1,5 +1,6 @@
 import { Company } from "../../../../domain/entity/company.entity";
 import { CreateCompanyOutputDto } from "../create-company.use-case";
+//
 
 export class CreateCompanyPresenter {
   static present(company: Company): CreateCompanyOutputDto {
