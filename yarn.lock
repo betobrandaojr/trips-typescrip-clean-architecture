@@ -47,7 +47,7 @@
   resolved "https://registry.npmjs.org/@tsconfig/node16/-/node16-1.0.4.tgz"
   integrity sha512-vxhUy4J8lyeyinH7Azl1pdd43GJhZH/tP2weN8TntQblOY+A0XbT8DJk1/oCPuOOyg/Ja757rG0CgHcWC8OfMA==
 
-"@types/node@*", "@types/node@^22.7.4":
+"@types/node@^22.7.4":
   version "22.7.4"
   resolved "https://registry.npmjs.org/@types/node/-/node-22.7.4.tgz"
   integrity sha512-y+NPi1rFzDs1NdQHHToqeiX2TIS79SWEAw9GYhkkx8bD0ChpfqC+n2j5OXOCpzfojBEBt6DnEnnG9MY0zk1XLg==
@@ -119,11 +119,10 @@ chokidar@^3.5.2:
   optionalDependencies:
     fsevents "~2.3.2"
 
-"clean-architecture@file:":
+"clean-architecture@file:.":
   version "1.0.0"
-  resolved "file:"
   dependencies:
-    clean-architecture "file:"
+    clean-architecture "file:../../../../home/beto/.cache/yarn/v6/npm-clean-architecture-1.0.0-0b4c9d52-b85e-4202-a476-a435cb08650a-1728430725139/node_modules/clean-architecture"
 
 concat-map@0.0.1:
   version "0.0.1"
@@ -305,7 +304,7 @@ ts-node@^10.9.2:
     v8-compile-cache-lib "^3.0.1"
     yn "3.1.1"
 
-typescript@^5.6.2, typescript@>=2.7:
+typescript@^5.6.2:
   version "5.6.2"
   resolved "https://registry.npmjs.org/typescript/-/typescript-5.6.2.tgz"
   integrity sha512-NW8ByodCSNCwZeghjN3o+JX5OFH0Ojg6sadjEKY4huZ52TqbJTJnDo5+Tw98lSy63NZvi4n+ez5m2u5d4PkZyw==

@@ -29,10 +29,6 @@ export class Company {
     });
   }
 
-  public whit(props: CompanyProps) {
-    return new Company(props);
-  }
-
   public get id() {
     return this.props.id;
   }
