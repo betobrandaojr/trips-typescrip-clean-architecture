@@ -10,6 +10,7 @@ export interface VehicleProps {
 
 export class Vehicle {
   private constructor(private readonly props: VehicleProps) {}
+
   public static create(
     companyId: string,
     identification: string,
