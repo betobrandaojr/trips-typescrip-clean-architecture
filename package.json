@@ -18,6 +18,9 @@
     "typescript": "^5.6.2"
   },
   "dependencies": {
-    "clean-architecture": "file:"
+    "clean-architecture": "file:",
+    "pg": "^8.13.0",
+    "reflect-metadata": "^0.2.2",
+    "typeorm": "^0.3.20"
   }
 }

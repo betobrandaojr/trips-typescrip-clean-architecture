@@ -4,3 +4,8 @@ npx tsc --init
 
 yarn add nodemon --dev
 
+docker compose up -d
+
+docker ps
+
+yarn add typeorm reflect-metadata pg
