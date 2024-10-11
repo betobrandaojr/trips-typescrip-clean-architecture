@@ -3,6 +3,8 @@ export interface GetAllActiveCompanyInputDto {
   cnpj?: string;
   registeredName?: string;
   tradeName?: string;
+  page?: number;
+  limit?: number;
 }
 
 export interface GetAllActiveCompanyOutputDto {

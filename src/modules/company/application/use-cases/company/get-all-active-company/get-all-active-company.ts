@@ -24,6 +24,8 @@ export class GetAllActiveCompanyUseCase
         cnpj: input.cnpj,
         registeredName: input.registeredName,
         tradeName: input.tradeName,
+        page: input.page,
+        limit: input.limit,
       });
 
       return GetAllActiveCompanyPresenter.present(companies);

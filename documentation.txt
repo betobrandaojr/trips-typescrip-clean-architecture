@@ -8,4 +8,4 @@ docker compose up -d
 
 docker ps
 
-yarn add typeorm reflect-metadata pg
+yarn add typeorm pg

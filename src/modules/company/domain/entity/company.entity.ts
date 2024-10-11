@@ -13,6 +13,10 @@ export class Company {
     this.validateCnpj(props.cnpj);
   }
 
+  public static restore(props: CompanyProps): Company {
+    return new Company(props);
+  }
+
   public static create(
     cnpj: string,
     registeredName: string,
