@@ -39,10 +39,12 @@ export class Vehicle {
     return this.props.companyId;
   }
 
-  public get identifier() {
+  public get identification() {
     return this.props.identification;
   }
-
+  public get type() {
+    return this.props.type;
+  }
   public get status() {
     return this.props.status;
   }
