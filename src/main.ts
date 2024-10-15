@@ -20,6 +20,7 @@ async function main() {
 
   const api = ApiExpress.create([createRoute, listRoute]);
   const port = 8000;
+  console.log(`Starting application...${port} `);
   api.start(port);
 }
 
