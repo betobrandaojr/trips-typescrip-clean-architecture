@@ -1,7 +1,6 @@
 import { Company } from "../../../../domain/entity/company.entity";
 import { CompanyGateway } from "../../../../domain/gateway/company.gateway";
 import { Usecase } from "../../use-cases";
-import { CreateCompanyPresenter } from "../../../../infrastructure/adapters/presenter/create-company.presenter";
 import {
   CreateCompanyInputDto,
   CreateCompanyOutputDto,
@@ -27,7 +26,7 @@ export class CreateCompanyUseCase
       );
       await this.companyGateway.save(iCompany);
 
-      const output: CreateCompanyOutputDto = {
+      const output = {
         id: iCompany.id,
         cnpj: iCompany.cnpj,
         registeredName: iCompany.registeredName,
@@ -37,7 +36,7 @@ export class CreateCompanyUseCase
         updatedAt: iCompany.updatedAt,
       };
 
-      return CreateCompanyPresenter.present(output);
+      return output;
     } catch (error: any) {
       console.error("Error occurred during company creation:", error);
       throw new Error("Failed to create and save company.");

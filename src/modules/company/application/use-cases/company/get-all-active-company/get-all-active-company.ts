@@ -9,7 +9,7 @@ import {
 export class GetAllActiveCompanyUseCase
   implements Usecase<GetAllActiveCompanyInputDto, GetAllActiveCompanyOutputDto>
 {
-  private constructor(private readonly companyGateway: CompanyGateway) {}
+  constructor(private readonly companyGateway: CompanyGateway) {}
 
   public static create(companyGateway: CompanyGateway) {
     return new GetAllActiveCompanyUseCase(companyGateway);
