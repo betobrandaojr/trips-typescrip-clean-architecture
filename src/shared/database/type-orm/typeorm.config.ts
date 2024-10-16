@@ -10,5 +10,5 @@ export const AppDataSource = new DataSource({
   database: "postgres",
   entities: [CompanyEntity],
   //synchronize: true,
-  logging: true,
+  //logging: true,
 });

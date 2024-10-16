@@ -57,4 +57,13 @@ export class CompanyRepository implements CompanyGateway {
     const companyEntities = await query.getMany();
     return companyEntities.map(CompanyMapper.toDomain);
   }
+
+  async getById(id: string): Promise<Company> {
+    const companyEntity = await this.repository.findOne({ where: { id } });
+
+    if (!companyEntity) {
+      throw new Error("Company not found.");
+    }
+    return CompanyMapper.toDomain(companyEntity);
+  }
 }
