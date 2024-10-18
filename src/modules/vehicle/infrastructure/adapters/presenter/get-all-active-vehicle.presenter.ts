@@ -1,5 +1,5 @@
-import { Vehicle } from "../../../../domain/entity/vehicle.entity";
-import { GetAllActiveVehicleOutputDto } from "../get-all-active-vehicle";
+import { GetAllActiveVehicleOutputDto } from "../../../application/use-cases/vehicle/get-all-active-vehicle/get-all-active-vehicle.dto";
+import { Vehicle } from "../../../domain/entity/vehicle.entity";
 
 export class GetAllActiveVehiclePresenter {
   static present(vehicles: Vehicle[]): GetAllActiveVehicleOutputDto {
