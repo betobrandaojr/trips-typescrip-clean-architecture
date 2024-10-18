@@ -206,6 +206,7 @@ chokidar@^3.5.2:
   resolved "file:"
   dependencies:
     clean-architecture "file:"
+    typeorm "^0.3.20"
 
 cli-highlight@^2.1.11:
   version "2.1.11"
@@ -324,6 +325,11 @@ foreground-child@^3.1.0:
   dependencies:
     cross-spawn "^7.0.0"
     signal-exit "^4.0.1"
+
+fsevents@~2.3.2:
+  version "2.3.3"
+  resolved "https://registry.npmjs.org/fsevents/-/fsevents-2.3.3.tgz"
+  integrity sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==
 
 get-caller-file@^2.0.5:
   version "2.0.5"
